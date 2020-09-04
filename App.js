@@ -16,12 +16,13 @@ import {
   StatusBar,
 } from 'react-native';
 import SplashScreen from './src/screens/SplashScreen';
+import InitialLaunchScreen from './src/screens/InitialLaunchScreen';
 
 
 const App: () => React$Node = () => {
   return (
     <View style={styles.container}>
-      <SplashScreen />
+      <InitialLaunchScreen />
     </View>
   );
 };
