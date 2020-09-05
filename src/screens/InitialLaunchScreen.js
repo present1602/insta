@@ -1,10 +1,17 @@
 import React, { Component, useState } from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Image, Modal } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Image, Modal, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors } from '../config/colors';
 import PrimaryButton from '../components/PrimaryButton';
 import SearchBox from '../components/SearchBox';
 
+
+const DATA = [
+  { id: 1, title: 'language', subTitle: 'subtitle1' },
+  { id: 2, title: 'language2', subTitle: 'subtitle2' },
+  { id: 3, title: 'language3', subTitle: 'subtitle3' },
+  { id: 4, title: 'language4', subTitle: 'subtitle4' },
+]
 
 const InitialLaunchScreen = () => {
   const [languageModalVisible, setLanguageModalVisible] = useState(false)
@@ -14,8 +21,8 @@ const InitialLaunchScreen = () => {
   }
   return (
     <View style={styles.container}>
-      <View style={styles.languageWapper}>
-        <TouchableOpacity onPress={() => handleClick() }>
+      <View style={styles.languageContainer}>
+        <TouchableOpacity onPress={() => handleClick()}>
           <Text>
             <Text>English (United States)</Text>
             <Icon name="angle-down" size={30} color={colors.gray} />
@@ -44,21 +51,33 @@ const InitialLaunchScreen = () => {
           <Text style={styles.facebook}>facebook</Text>
         </View>
       </View>
-    
+
       <Modal visible={languageModalVisible}
         transparent={true}
       >
-        <View style={[styles.modalContainer, 
-                      languageModalVisible ? {backgroundColor: 'rgba(0,0,0,0.5)'} : null
-                      ]}>  
+        <View style={[styles.modalContainer,
+        languageModalVisible ? { backgroundColor: 'rgba(0,0,0,0.5)' } : null
+        ]}>
           <View style={styles.modalContentContainer}>
             <View style={styles.titleWrapper}>
               <Text style={styles.title}>Select your language</Text>
             </View>
             <View style={styles.underLine}></View>
             <View style={styles.searchBoxWrapper}>
-              <SearchBox/>
+              <SearchBox />
             </View>
+            <View style={styles.underLine}></View>
+            <FlatList
+              data={DATA}
+              keyExtractor={item => item.id}
+              renderItem={({ item }) => 
+                <View style={styles.languageWrapper}>
+                  <Text style={styles.langTitle}>{item.title}</Text>
+                  <Text style={styles.subLanguage}>{item.subTitle}</Text>
+                </View>
+              }
+            />
+
           </View>
         </View>
         <TouchableOpacity onPress={() => handleClick()}>
@@ -77,7 +96,7 @@ export const styles = StyleSheet.create({
     flex: 1,
 
   },
-  languageWapper: {
+  languageContainer: {
     display: 'flex',
     flex: 1,
     justifyContent: 'flex-start',
@@ -135,7 +154,23 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.gray1
   },
   searchBoxWrapper: {
-
+    display: 'flex',
+    marginBottom: 20
+  },
+  languageWrapper: {
+    marginLeft: 15,
+    marginBottom: 10
+  },
+  subLanguage:{
+    color:colors.gray,
+    fontSize:16
+  },
+  langTitle: {
+    fontSize: 20
+  },
+  ButtonItemContainer: {
+      marginBottom: 10,
+      width: '100%'
   }
 
 })
