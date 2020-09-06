@@ -8,30 +8,39 @@ import PhoneInputForm from '../components/PhoneInputForm'
 const SignUpScreen1 = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.avatarWrapper}>
-        <Image
-          style={styles.avatar}
-          source={require('../assets/images/avatar.jpg')} />
-      </View>
-      <View style={styles.switchTitleWrapper}>
-        <TouchableOpacity style={styles.titleSwitch}>
-          <Text style={styles.title}>Phone</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.titleSwitch}>
-          <Text style={styles.title}>Email</Text>
-        </TouchableOpacity>
+      <View style={styles.topContainer}>
+        <View style={styles.avatarWrapper}>
+          <Image
+            style={styles.avatar}
+            source={require('../assets/images/avatar.jpg')} />
+        </View>
+        <View style={styles.switchTitleWrapper}>
+          <TouchableOpacity style={styles.titleSwitch}>
+            <Text style={styles.title}>Phone</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.titleSwitch}>
+            <Text style={styles.title}>Email</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.phoneNumberInputWrapper}>
+          <PhoneInputForm />
+        </View>
+
+        <View style={styles.notificationWRapper}>
+          <Text style={styles.notificationText}>You may recieve SMS updates from instagram and can opt out at any time.</Text>
+        </View>
+
+        <View style={styles.buttonWrapper}>
+          <PrimaryButton buttonLabel={'Next'} textColor={colors.secondary} buttonBgColor={colors.primary} />
+        </View>
       </View>
 
-      <View style={styles.phoneNumberInputWrapper}>
-        <PhoneInputForm />
-      </View>
-
-      <View style={styles.notificationWRapper}>
-        <Text style={styles.notificationText}>You may recieve SMS updates from instagram and can opt out at any time.</Text>
-      </View>
-
-      <View style={styles.buttonWrapper}>
-        <PrimaryButton buttonLabel={'Next'} textColor={colors.secondary} buttonBgColor={colors.primary} />
+      <View style={styles.bottomContainer}>
+        <Text style={styles.login}>
+          <Text style={styles.alreradyAccount}>Already have an account?</Text>
+          <Text style={styles.logIn}>LogIn.</Text>
+        </Text>
       </View>
     </View>
 
@@ -83,9 +92,26 @@ export const styles = StyleSheet.create({
     color: colors.gray,
     textAlign: 'center'
   },
-  buttonWrapper:{
-    marginLeft:15,
-    marginRight:15
+  buttonWrapper: {
+    marginLeft: 15,
+    marginRight: 15
   },
-
+  topContainer: {
+    display: 'flex',
+    flex: 1
+  },
+  bottomContainer: {
+    borderTopWidth:1,
+    borderColor:colors.gray1,
+    padding:15
+  },
+  login: {
+    textAlign: 'center'
+  },
+  alreradyAccount:{
+    color:colors.gray
+  },
+  logIn:{
+      fontWeight:'700'
+  }
 })
