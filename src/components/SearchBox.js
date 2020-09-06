@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
 import { Text, View, StyleSheet, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { colors } from '../config/colors';
+import { colors } from '../config/Colors';
 
 
 const SearchBox = () => {

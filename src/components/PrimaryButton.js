@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
-import { colors } from '../config/colors';
+import { colors } from '../config/Colors';
 
 const PrimaryButton = ({ buttonLabel, buttonBgColor, textColor }) => {
   return (

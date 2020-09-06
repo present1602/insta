@@ -18,11 +18,15 @@ import {
 import SplashScreen from './src/screens/SplashScreen';
 import InitialLaunchScreen from './src/screens/InitialLaunchScreen';
 
+import SignUpScreen1 from './src/screens/SignUpScreen1';
+import SignUpScreen2 from './src/screens/SignUpScreen2';
+
 
 const App: () => React$Node = () => {
   return (
     <View style={styles.container}>
-      <InitialLaunchScreen />
+
+      <SignUpScreen1/>
     </View>
   );
 };

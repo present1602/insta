@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Image, Modal, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { colors } from '../config/colors';
+import { colors } from '../config/Colors';
 import PrimaryButton from '../components/PrimaryButton';
 import SearchBox from '../components/SearchBox';
 
