@@ -24,23 +24,39 @@ const PhoneInputForm = () => {
 export default PhoneInputForm;
 
 const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    flexDirection: 'row'
+  container:{
+    display:'flex',
+    flexDirection:'row',
+    alignItems:'center',
+    borderWidth:1,
+    paddingLeft:5,
+    paddingRight:5,
+    borderRadius:5,
+    borderColor:colors.gray,
+    backgroundColor:colors.gray1
+
   },
-  countryWrapper: {
-    display: "flex",
-    flex: 1
+  countryWrapper:{
+  display:'flex',
+  borderRightWidth:1,
+  borderRightColor:colors.gray,
+  paddingRight:15,
+
   },
-  inputNumber: {
-    display: "flex",
-    flex: 1
+  country:{
+      fontWeight:'700',
+      color:colors.gray
   },
-  closeBtnWrapper: {
-    display: "flex",
-    flex: 1
+  inputNumber:{
+      display:'flex',
+      flex:1,
+      paddingLeft:15
   },
-  icon: {
-    textAlign: 'right'
+  closeBtnWrapper:{
+      display:'flex',
+      flex:1
+  },
+  icon:{
+      textAlign:'right'
   }
 })

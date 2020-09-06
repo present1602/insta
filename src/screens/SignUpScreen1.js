@@ -9,7 +9,7 @@ const SignUpScreen1 = () => {
   return (
     <View style={styles.container}>
       <View style={styles.avatarWrapper}>
-        <Image 
+        <Image
           style={styles.avatar}
           source={require('../assets/images/avatar.jpg')} />
       </View>
@@ -23,11 +23,15 @@ const SignUpScreen1 = () => {
       </View>
 
       <View style={styles.phoneNumberInputWrapper}>
-        <PhoneInputForm/>
+        <PhoneInputForm />
       </View>
 
-      <View>
-        <Text>lorum dummy</Text>
+      <View style={styles.notificationWRapper}>
+        <Text style={styles.notificationText}>You may recieve SMS updates from instagram and can opt out at any time.</Text>
+      </View>
+
+      <View style={styles.buttonWrapper}>
+        <PrimaryButton buttonLabel={'Next'} textColor={colors.secondary} buttonBgColor={colors.primary} />
       </View>
     </View>
 
@@ -54,7 +58,7 @@ export const styles = StyleSheet.create({
   switchTitleWrapper: {
     display: 'flex',
     flexDirection: 'row',
-    margin:30,
+    margin: 30,
     marginTop: 30
   },
   titleSwitch: {
@@ -70,5 +74,18 @@ export const styles = StyleSheet.create({
   phoneNumberInputWrapper: {
     display: "flex",
     margin: 30
-  }
+  },
+  notificationWRapper: {
+    padding: 30,
+    paddingTop: 10
+  },
+  notificationText: {
+    color: colors.gray,
+    textAlign: 'center'
+  },
+  buttonWrapper:{
+    marginLeft:15,
+    marginRight:15
+  },
+
 })
