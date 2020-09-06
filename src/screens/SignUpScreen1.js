@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import PrimaryInputForm from '../components/PrimaryInputForm';
 import PrimaryButton from '../components/PrimaryButton';
@@ -6,6 +6,9 @@ import { colors } from '../config/Colors';
 import PhoneInputForm from '../components/PhoneInputForm'
 
 const SignUpScreen1 = () => {
+  const [isPhoneEnabled, setPhoneEnabled] = useState(true)
+
+
   return (
     <View style={styles.container}>
       <View style={styles.topContainer}>
@@ -15,10 +18,14 @@ const SignUpScreen1 = () => {
             source={require('../assets/images/avatar.jpg')} />
         </View>
         <View style={styles.switchTitleWrapper}>
-          <TouchableOpacity style={styles.titleSwitch}>
+          <TouchableOpacity
+            onPress={() => setPhoneEnabled(true)}
+            style={styles.titleSwitch}>
+
             <Text style={styles.title}>Phone</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.titleSwitch}>
+          <TouchableOpacity style={styles.titleSwitch}
+            onPress={() => setPhoneEnabled(false)}>
             <Text style={styles.title}>Email</Text>
           </TouchableOpacity>
         </View>
@@ -101,17 +108,17 @@ export const styles = StyleSheet.create({
     flex: 1
   },
   bottomContainer: {
-    borderTopWidth:1,
-    borderColor:colors.gray1,
-    padding:15
+    borderTopWidth: 1,
+    borderColor: colors.gray1,
+    padding: 15
   },
   login: {
     textAlign: 'center'
   },
-  alreradyAccount:{
-    color:colors.gray
+  alreradyAccount: {
+    color: colors.gray
   },
-  logIn:{
-      fontWeight:'700'
+  logIn: {
+    fontWeight: '700'
   }
 })

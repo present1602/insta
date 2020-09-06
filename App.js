@@ -20,13 +20,13 @@ import InitialLaunchScreen from './src/screens/InitialLaunchScreen';
 
 import SignUpScreen1 from './src/screens/SignUpScreen1';
 import SignUpScreen2 from './src/screens/SignUpScreen2';
+import FeedScreen from './src/screens/FeedScreen';
 
 
 const App: () => React$Node = () => {
   return (
     <View style={styles.container}>
-
-      <SignUpScreen1/>
+      <FeedScreen/>
     </View>
   );
 };
