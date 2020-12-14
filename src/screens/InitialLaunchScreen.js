@@ -5,6 +5,8 @@ import { colors } from '../config/Colors';
 import PrimaryButton from '../components/PrimaryButton';
 import SearchBox from '../components/SearchBox';
 
+import { useNavigation } from '@react-navigation/native';
+
 
 const DATA = [
   { id: 1, title: 'language', subTitle: 'subtitle1' },
@@ -14,11 +16,24 @@ const DATA = [
 ]
 
 const InitialLaunchScreen = () => {
+  const navigation = useNavigation();
   const [languageModalVisible, setLanguageModalVisible] = useState(false)
 
   const handleClick = () => {
     setLanguageModalVisible(!languageModalVisible)
   }
+
+  const onPressLogin = () => {
+    // alert("Login button pressed")
+    navigation.navigate('LoginScreen')
+  }
+
+
+  const onPressCreateAccount = () => {
+    // alert("Create account button pressed")
+    navigation.navigate('SignUpScreen1')
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.languageContainer}>
@@ -38,11 +53,13 @@ const InitialLaunchScreen = () => {
           buttonLabel={"create Account"}
           buttonBgColor={colors.primary}
           textColor={colors.secondary}
+          onPressBtn = {onPressCreateAccount}
         />
         <PrimaryButton
           buttonLabel={"Login"}
           buttonBgColor={colors.secondary}
           textColor={colors.primary}
+          onPressBtn = {onPressLogin}
         />
       </View>
       <View style={styles.footerWapper}>

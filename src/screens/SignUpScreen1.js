@@ -4,10 +4,16 @@ import PrimaryInputForm from '../components/PrimaryInputForm';
 import PrimaryButton from '../components/PrimaryButton';
 import { colors } from '../config/Colors';
 import PhoneInputForm from '../components/PhoneInputForm'
+import { useNavigation } from '@react-navigation/native';
 
 const SignUpScreen1 = () => {
+  const navigation = useNavigation();
+
   const [isPhoneEnabled, setPhoneEnabled] = useState(true)
 
+  function onPressNext(){
+    navigation.navigate('SignUpScreen2')
+  }
 
   return (
     <View style={styles.container}>
@@ -30,16 +36,25 @@ const SignUpScreen1 = () => {
           </TouchableOpacity>
         </View>
 
+
+        <View style={styles.notificationWRapper}>
+          <Text style={styles.notificationText}>
+            핸드폰번호를 입력해주세요
+          </Text>
+        </View>
+
         <View style={styles.phoneNumberInputWrapper}>
           <PhoneInputForm />
         </View>
 
-        <View style={styles.notificationWRapper}>
-          <Text style={styles.notificationText}>You may recieve SMS updates from instagram and can opt out at any time.</Text>
-        </View>
 
         <View style={styles.buttonWrapper}>
-          <PrimaryButton buttonLabel={'Next'} textColor={colors.secondary} buttonBgColor={colors.primary} />
+          <PrimaryButton 
+            buttonLabel={'Next'} 
+            textColor={colors.secondary} 
+            buttonBgColor={colors.primary} 
+            onPressBtn={onPressNext}
+          />
         </View>
       </View>
 
@@ -92,8 +107,8 @@ export const styles = StyleSheet.create({
     margin: 30
   },
   notificationWRapper: {
-    padding: 30,
-    paddingTop: 10
+    padding: 10,
+    // paddingTop: 10
   },
   notificationText: {
     color: colors.gray,

@@ -1,7 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import { Text, View, StyleSheet, Image, ColorPropType } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const SplashScreen = () => {
+  const navigation = useNavigation();
+  
+  useEffect(()=>{
+    setTimeout(() =>{
+      navigation.navigate('InitialLaunchScreen')
+    }, 3000)
+  }, [])
   return (
     <View style={styles.container}>
       <View style={styles.iconContainer}>
@@ -35,13 +43,13 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center',
-    borderWidth: 3
+    // borderWidth: 3
   },
   logoContainer: {
     display: 'flex',
     flex: 1,
     justifyContent: 'flex-end',
-    borderWidth: 3,
+    // borderWidth: 3,
     alignItems: 'center',
     marginBottom: 30
   },

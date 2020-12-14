@@ -7,7 +7,7 @@ const PhoneInputForm = () => {
   return (
     <View style={styles.container}> 
       <View style={styles.countryWrapper}>
-        <Text>KR +82</Text>
+        <Text>+82</Text>
       </View>
       <View style={styles.inputNumber}>
         <TextInput value={'0000'} />
